@@ -1,0 +1,2 @@
+web: PORT=4000 npm start --prefix ../fight-club
+api: PORT=3001 bundle exec rails server
