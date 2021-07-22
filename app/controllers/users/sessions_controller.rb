@@ -12,6 +12,7 @@ class Users::SessionsController < Devise::SessionsController
         log_out_success
     else
         log_out_failure
+    end
   end
 
   def log_out_success
