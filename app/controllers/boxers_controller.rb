@@ -46,6 +46,6 @@ class BoxersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def boxer_params
-      params.require(:boxer).permit(:boxer_id, :first_name, :last_name, :height, :weight, :reach, :stance, :gym_id)
+      params.require(:boxer).permit(:first_name, :last_name, :height, :weight, :reach, :stance, :gym_id)
     end
 end

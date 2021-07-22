@@ -46,6 +46,6 @@ class FightsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def fight_params
-      params.require(:fight).permit(:boxer_a_id, :boxer_b_id, :coach_id, :time_scheduled, :rounds, :round_time, :winner_id, :loser_id, :result, :gym_id)
+      params.require(:fight).permit(:boxer_a_id, :boxer_b_id, :time_scheduled, :rounds, :round_time, :winner_id, :loser_id, :result, :gym_id)
     end
 end

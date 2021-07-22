@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_20_053109) do
+ActiveRecord::Schema.define(version: 2021_07_22_105615) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,32 +28,20 @@ ActiveRecord::Schema.define(version: 2021_07_20_053109) do
     t.index ["gym_id"], name: "index_boxers_on_gym_id"
   end
 
-  create_table "coaches", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "email"
-    t.bigint "gym_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["gym_id"], name: "index_coaches_on_gym_id"
-  end
-
   create_table "fights", force: :cascade do |t|
     t.bigint "boxer_a_id", null: false
     t.bigint "boxer_b_id", null: false
-    t.bigint "coach_id", null: false
     t.datetime "time_scheduled"
     t.integer "rounds"
     t.integer "round_time"
-    t.bigint "winner_id", null: false
-    t.bigint "loser_id", null: false
+    t.bigint "winner_id"
+    t.bigint "loser_id"
     t.string "result"
     t.bigint "gym_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["boxer_a_id"], name: "index_fights_on_boxer_a_id"
     t.index ["boxer_b_id"], name: "index_fights_on_boxer_b_id"
-    t.index ["coach_id"], name: "index_fights_on_coach_id"
     t.index ["gym_id"], name: "index_fights_on_gym_id"
     t.index ["loser_id"], name: "index_fights_on_loser_id"
     t.index ["winner_id"], name: "index_fights_on_winner_id"
@@ -66,12 +54,29 @@ ActiveRecord::Schema.define(version: 2021_07_20_053109) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "jwt_denylist", force: :cascade do |t|
+    t.string "jti", null: false
+    t.datetime "exp", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
   add_foreign_key "boxers", "gyms"
-  add_foreign_key "coaches", "gyms"
   add_foreign_key "fights", "boxers", column: "boxer_a_id"
   add_foreign_key "fights", "boxers", column: "boxer_b_id"
   add_foreign_key "fights", "boxers", column: "loser_id"
   add_foreign_key "fights", "boxers", column: "winner_id"
-  add_foreign_key "fights", "coaches"
   add_foreign_key "fights", "gyms"
 end
