@@ -1,2 +1,19 @@
 GET http://localhost:3001/account
+Accept: application/json
 
+###
+
+POST http://localhost:3001/users/sign_in
+Content-Type: application/json
+
+{
+    "user": {
+        "email": "testdsadasd3@example.com",
+        "password": "12345678"
+    }
+}
+
+###
+
+DELETE http://localhost:3001/users/sign_out
+Content-Type: application/json
