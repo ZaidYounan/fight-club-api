@@ -11,6 +11,7 @@ class BoxersController < ApplicationController
   # GET /boxers/1
   def show
     render json: @boxer
+    avatar = rails_blob_path(user.avatar)
   end
 
   # POST /boxers
@@ -46,6 +47,6 @@ class BoxersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def boxer_params
-      params.require(:boxer).permit(:first_name, :last_name, :height, :weight, :reach, :stance, :gym_id)
+      params.require(:boxer).permit(:first_name, :last_name, :height, :weight, :reach, :stance, :gym_id, :avatar)
     end
 end

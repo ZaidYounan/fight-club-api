@@ -17,3 +17,22 @@ Content-Type: application/json
 
 DELETE http://localhost:3001/users/sign_out
 Content-Type: application/json
+
+
+###
+
+POST http://localhost:3001/boxers
+Content-Type: application/json
+
+{
+    "boxer": {
+        "first_name": "zacky",
+        "last_name": "wacky",
+        "height": 176,
+        "weight":74,
+        "reach": 71,
+        "stance": "Orthodox",
+        "gym_id": 4,
+        "avatar": "fight-club-api/app/assets/images/default-avatar.jpeg"
+    }
+}

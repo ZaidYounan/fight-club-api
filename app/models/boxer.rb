@@ -1,4 +1,5 @@
 class Boxer < ApplicationRecord
+  has_one_attached :avatar, dependent: :destroy_all
   belongs_to :gym
 
     # sets the boxer as boxer_a in fight table
