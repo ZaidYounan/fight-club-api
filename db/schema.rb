@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2021_07_25_023222) do
+=======
+ActiveRecord::Schema.define(version: 2021_07_25_052800) do
+>>>>>>> 294a075e9b47a9354e3e76eba21a41b11e778013
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,8 +66,8 @@ ActiveRecord::Schema.define(version: 2021_07_25_023222) do
     t.datetime "time_scheduled"
     t.integer "rounds"
     t.integer "round_time"
-    t.bigint "winner_id"
-    t.bigint "loser_id"
+    t.bigint "winner_id", default: 0
+    t.bigint "loser_id", default: 0
     t.string "result"
     t.bigint "gym_id", null: false
     t.datetime "created_at", precision: 6, null: false
