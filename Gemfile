@@ -43,4 +43,12 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "aws-sdk-s3", require: false
 
-gem "rspec-rails"
+group :development, :test do
+  gem "rspec-rails"
+end
+group :test do
+  gem 'database_cleaner'
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'shoulda-matchers'
+end
