@@ -8,25 +8,25 @@ RSpec.describe "Boxer", type: :request do
         end
     end
 
-    describe "POST /boxers" do
-        before do
-            FactoryBot.create(:gym)
-        end
-        it "returns created" do
-            post "/boxers", params: {
-                boxer: {
-                    first_name: "test",
-                    last_name: "name",
-                    height: 180,
-                    weight: 80,
-                    reach: 40,
-                    stance: "Southpaw",
-                    gym_id: 1
-                    }
-            }
-            expect(response).to have_http_status(:created)
-        end
-    end
+    # describe "POST /boxers" do
+    #     before do
+    #         FactoryBot.create(:gym)
+    #     end
+    #     it "returns created" do
+    #         post "/boxers", params: {
+    #             boxer: {
+    #                 first_name: "test",
+    #                 last_name: "name",
+    #                 height: 180,
+    #                 weight: 80,
+    #                 reach: 40,
+    #                 stance: "Southpaw",
+    #                 gym_id: 1
+    #                 }
+    #         }
+    #         expect(response).to have_http_status(:created)
+    #     end
+    # end
 
     describe "DELETE /boxers/:id" do
         it "deletes a boxer" do
