@@ -13,10 +13,5 @@ class Boxer < ApplicationRecord
     
     # sets the boxer as loser in fight table
     has_many :fights_as_loser, class_name: "Fight", foreign_key: "loser_id"
-    
-    # has_many :won_fights, through: :wins, source: :fights
-    # has_many :lost_fights, through: :losses, source: :fights
-    # scope :winners, -> { joins(:wins) }
-    # scope :losers, -> { joins(:losses) }
   
 end
