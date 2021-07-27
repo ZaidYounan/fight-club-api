@@ -36,9 +36,14 @@ group :development do
   gem 'listen', '~> 3.3'
 end
 
-# Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-  
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "aws-sdk-s3", require: false
+
+group :development, :test do
+  gem "rspec-rails"
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'database_cleaner'
+end
