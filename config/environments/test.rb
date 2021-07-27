@@ -56,4 +56,8 @@ Rails.application.configure do
 
   # Annotate rendered view with file names.
   # config.action_view.annotate_rendered_view_with_filenames = true
+
+  # #Config for Factory_Bot_rails
+  # config.factory_bot.definition_file_paths = ["custom/factories"]
+
 end
